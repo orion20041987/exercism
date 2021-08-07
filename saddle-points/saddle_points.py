@@ -32,33 +32,37 @@ def saddle_points(matrix):
         # min_column.append(index_min_column_item)
         # list_min_column_item.append(min_column)
         # print(list_min_column_item)
-        compare_counter = 0
+        compare_iteration_counter = 0
         for item, counter in selected_column_numerated:
-            while compare_counter < len(matrix):
-                print(f'compare_counter:    {compare_counter}')
-                # print('начинается сравнение')
-                # print(f'item:{item}')
-                # print(f'min_column_item:{min_column_item}')
-                if item == min_column_item:
-                    min_column_item = item
-                    index_min_column_item = counter
-                    list_min_column_item.append([min_column_item, index_min_column_item])
-                    compare_counter += 1
-                elif item < min_column_item:
-                    iter_count += 1
-                    break
-                    # list_min_column_item.clear()
-                    # min_column_item = item
-                    # index_min_column_item = counter
-                    # list_min_column_item.append([min_column_item, index_min_column_item])
-                elif item > min_column_item:
-                    compare_counter += 1
-                    # min_column.append(min_column_item)
-                    # min_column.append(index_min_column_item)
-                    # list_min_column_item.append(min_column)
-                break
+            # while compare_iteration_counter < len(matrix):
+            print(f'item:{item}, counter:{counter}, min_column_item:{min_column_item}')
+            print(f'compare_counter:    {compare_iteration_counter}')
+            # print('начинается сравнение')
+            # print(f'item:{item}')
+            # print(f'min_column_item:{min_column_item}')
+            if item == min_column_item:
+                min_column_item = item
+                index_min_column_item = counter
+                list_min_column_item.append([min_column_item, index_min_column_item])
+                compare_iteration_counter += 1
+            elif item < min_column_item:
+                min_column_item = item
+                index_min_column_item = counter
+                list_min_column_item.clear()
+                list_min_column_item.append([min_column_item, index_min_column_item])
+                iter_count += 1
+                # list_min_column_item.clear()
+                # min_column_item = item
+                # index_min_column_item = counter
+                # list_min_column_item.append([min_column_item, index_min_column_item])
+            elif item > min_column_item:
+                compare_iteration_counter += 1
+                # min_column.append(min_column_item)
+                # min_column.append(index_min_column_item)
+                # list_min_column_item.append(min_column)
         print(f'result:{list_min_column_item}')
         break
+
 
     print(min_column_item, index_min_column_item)
     for el in list_min_column_item:
